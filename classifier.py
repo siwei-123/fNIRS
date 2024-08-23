@@ -45,6 +45,8 @@ class LogisticRegressionManual:
             self.weights -= self.learning_rate * dw
             self.bias -= self.learning_rate * db
 
+
+
     def predict_proba(self, X):
 
         X = X.values

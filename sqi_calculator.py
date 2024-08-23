@@ -13,7 +13,11 @@ for dirpath, dirnames, filenames in os.walk(file_path_main):
                 count=count+1
                 file_path = os.path.join(dirpath, file_name)
 
-                raw = mne.io.read_raw_snirf(file_path, preload=True)
+                raw_original = mne.io.read_raw_snirf(file_path, preload=True)
+
+                new_sampling_rate = 10
+
+                raw=raw_original.resample(sfreq=new_sampling_rate)
 
                 signal = raw.get_data()
 
